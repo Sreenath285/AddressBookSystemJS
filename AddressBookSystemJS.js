@@ -118,7 +118,58 @@ class Contact{
   }
 }
 
+/**
+ * Created array to store contact
+ */
 let addressBookArr = new Array();
+
+/**
+ * Created findContact method to check if conatct exists or not by passing first name
+ * @param {*} firstName - passing first name
+ * @returns - returns true if contact exists
+ */
+function findContact(firstName) {
+    return addressBookArr.some(contact => contact.firstName);
+}
+
+/**
+ * Created editContact method to edit existing contact 
+ * @param {*} firstName - passing first name
+ * @param {*} type - passing type which has to edit
+ * @param {*} newValue - passing new value to that type
+ */
+function editContact(firstName, type, newValue) {
+    if (findContact(firstName)) {
+        switch(type) {
+            case "lastName" :
+                addressBookArr.find((contact) => contact.firstName).lastName = newValue;
+                break;
+            case "address" :
+                addressBookArr.find((contact) => contact.firstName).address = newValue;
+                break;
+            case "city" :
+                addressBookArr.find((contact) => contact.firstName).city = newValue;
+                break;
+            case "state" :
+                addressBookArr.find((contact) => contact.firstName).state = newValue;
+                break;
+            case "zipCode" :
+                addressBookArr.find((contact) => contact.firstName).zipCode = newValue;
+                break;
+            case "phoneNumber" :
+                addressBookArr.find((contact) => contact.firstName).phoneNumber = newValue;
+                break;
+            case "email" :
+                addressBookArr.find((contact) => contact.firstName).email = newValue;
+                break;
+            default :
+                console.log("Enter valid type");
+        }
+    }
+    else {
+        console.log("Contact does not exist");
+    }
+}
 
 try{
   addressBookArr.push(new Contact("Sreenath", "Emidi", "HanumanNagar", "Adoni", "AndhraPradesh", 
@@ -135,4 +186,8 @@ catch(e){
   console.log(e);
 }
 
+console.log(addressBookArr);
+
+console.log("--------- After editing contact ---------")
+editContact("Sreenath", "phoneNumber", "91-8866554477");
 console.log(addressBookArr);
