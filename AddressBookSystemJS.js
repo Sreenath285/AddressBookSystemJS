@@ -3,11 +3,12 @@ class Contact{
   constructor(...params){
       this.firstName = params[0];
       this.lastName = params[1];
-      this.city = params[2];
-      this.state = params[3];
-      this.zipCode = params[4];
-      this.phoneNumber = params[5];
-      this.email = params[6]
+      this.address = params[2];
+      this.city = params[3];
+      this.state = params[4];
+      this.zipCode = params[5];
+      this.phoneNumber = params[6];
+      this.email = params[7];
   }
 
   get firstName(){
@@ -16,6 +17,10 @@ class Contact{
 
   get lastName(){
       return this._lastName;
+  }
+
+  get address () {
+    return this._address;
   }
 
   get city(){
@@ -46,6 +51,10 @@ class Contact{
       this._lastName = lastName;
   }
 
+  set address(address) {
+    this._address = address;
+  }
+
   set city(city){
       this._city = city;
   }
@@ -69,10 +78,11 @@ class Contact{
   toString(){
       return "First Name : " + this.firstName + 
              ", Last Name : " + this.lastName + 
+             ", Address : " + this.address +
              ", City : " + this.city + 
              ", State : " + this.state + 
-             ", zipCode : " + this.zipCode + 
+             ", ZipCode : "+ this.zipCode + 
              ", Phone Number : " + this.phoneNumber + 
-             ", Email : " + this.email;
+             ", Email : "+ this.email;
   }
 }
